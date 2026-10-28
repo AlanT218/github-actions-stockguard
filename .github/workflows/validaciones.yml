@@ -1,9 +1,9 @@
-name: CI StockGuard
-run-name: CI ejecutado por ${{ github.actor }}
+name: Validaciones StockGuard
+run-name: "${{ github.event_name == 'pull_request' && github.event.pull_request.title || github.event_name == 'workflow_dispatch' && 'Validacion 7 - Ejecucion manual exitosa' || github.event.head_commit.message }}"
 
 on:
   push:
-    branches: [main]
+    branches: [main, "feature/**"]
   pull_request:
     branches: [main]
   workflow_dispatch:
